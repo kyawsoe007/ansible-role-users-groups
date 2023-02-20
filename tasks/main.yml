@@ -1,0 +1,30 @@
+---
+# tasks file for ansible-role-users-groups
+- name: Create group
+  group:
+    name: deploy
+    state: present
+
+- name: Create password locked user
+  user:
+    name: deploy
+    state: present
+    password_lock: yes
+    group: deploy
+
+
+
+
+# - name: Create group
+#   group:
+#     name: deploy
+#     state: present
+
+# - name: create demo user
+#   user:
+#     name: deploy
+#     groups: deploy
+#     shell: /sbin/nologin
+#     append: yes
+#     state: present
+#     create_home: no
